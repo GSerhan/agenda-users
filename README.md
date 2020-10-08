@@ -1,4 +1,4 @@
-# real-world-vue
+# Agenda Project
 
 ## Project setup
 ```
