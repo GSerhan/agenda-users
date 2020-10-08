@@ -1,8 +1,8 @@
 <template>
     <div>
         <div v-if="Object.keys(selectedFilter).length !== 0">
-            <p>Filtred name: {{selectedFilter.name}}</p>
-            <p>Filtred by: {{selectedFilter.group}}</p>
+            <p>Filter name: {{selectedFilter.name}}</p>
+            <p>Filtered by: {{selectedFilter.group}}</p>
         </div>
         <div class="search-container">
             <input class="search-form" type="text" v-model="searchText" placeholder="Search" />
