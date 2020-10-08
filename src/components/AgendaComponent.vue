@@ -3,7 +3,8 @@
         <login-component
             v-if="!logged"
         ></login-component>
-        <dashboard-component v-else></dashboard-component>
+        <dashboard-component v-else>
+        </dashboard-component>
     </div>
     
 </template>
