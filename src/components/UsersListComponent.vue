@@ -3,7 +3,7 @@
         <div v-if="Object.keys(selectedFilter).length !== 0">
             <p>Filter name: {{selectedFilter.name}}</p>
             <p>Filtered by: {{selectedFilter.group}}</p>
-            <p>Serhan</p>
+            <p>Serhan2</p>
         </div>
         <div class="search-container">
             <input class="search-form" type="text" v-model="searchText" placeholder="Search" />
