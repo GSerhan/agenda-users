@@ -62,11 +62,13 @@
             )
         },
         methods: {
+            // display edit contact modal
             getContact() {
                 if(Object.keys(this.selectedUser).length !== 0) {
                     this.showEditContactModal = true;
                 }
             },
+            // edit user data
             editUser(value) {
                 if(Object.keys(this.selectedUser).length !== 0) {
                     this.$store.dispatch('generalStore/setSelectedUserAction', value);
@@ -74,6 +76,7 @@
                     this.showEditContactModal = false;
                 }
             },
+            // delete selected user data
             deleteContact() {
                 if(Object.keys(this.selectedUser).length !== 0) {
                     this.$store.dispatch('generalStore/deleteContactAction');

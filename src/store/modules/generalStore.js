@@ -80,9 +80,11 @@ users.forEach(user => {
     groupArray.push(user.group);
 });
 
+//remove group duplicates
 const uniqueGroups = new Set(groupArray);
 const backToGroupsArray = [...uniqueGroups];
 
+//create my groups possibilities from standard JSON
 backToGroupsArray.forEach((group, index) => {
     groupUnique.push(
          {
@@ -92,10 +94,12 @@ backToGroupsArray.forEach((group, index) => {
      )
 });
 
+//first letter
 const getFirstLetter = () => {
     return backToArray;
 };
 
+//array of groups possibilities
 const getGroups = () => {
     return groupUnique;
 };

@@ -41,9 +41,11 @@
             }
         },
         methods: {
+            // add user modal
             getContactModal(){
                 this.showAddContactModal = true;
             },
+            // add new user method
             addUser(value) {
                 this.$store.dispatch('generalStore/addUserAction', value);
                 this.$store.dispatch('generalStore/addFirstLetterAction', value.firstName.charAt(0));

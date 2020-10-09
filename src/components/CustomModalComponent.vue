@@ -112,8 +112,8 @@
             }
         },
         watch: {
+            // detect changes on groups select
             selectedGroup(to) {
-                console.log('to', to);
                 if(to === null) {
                     this.newUser.group = 'others';
                     this.filter.group = 'others';
@@ -130,6 +130,7 @@
             cancelAction() {
                 this.$emit('cancelAction', false);
             },
+            // main method for ok button
             getAction() {
                 if(this.from === 'filters') {
                     this.$emit('getAction', this.filter);
@@ -149,12 +150,14 @@
                     'groups'
                 ]
             ),
+            //dynamic width and height for modal
             modalWidthHeight() {
                 return {
                     '--width':  isNaN(this.width) ? this.width : this.width + 'px',
                     '--height':  isNaN(this.height) ? this.height : this.height + 'px'
                 }
             },
+            //dynamics color for buttons modal
             confirmButtonColor() {
                 return '--background:' + this.colorConfirmButton;
             },
@@ -163,7 +166,9 @@
             }
         },
         mounted() {
+            //selectedGroup standard
             this.selectedGroup = this.groups[0];
+            //change user data according to variable 'from'
             if(this.from === 'edit') {
                 this.newUser = this.selectedUser;
             }

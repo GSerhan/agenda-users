@@ -21,7 +21,6 @@
             ...mapFields(
                 'generalStore',
                 [
-                    'usersList',
                     'logged'
                 ]
             )

@@ -29,6 +29,7 @@
             }
         },
         methods: {
+            //submit user data for login
             submitUser() {
                 if(!this.user.length || !this.password.length) {
                     this.$toaster.error('Please complete your data');
@@ -43,7 +44,6 @@
             ...mapFields(
                 'generalStore',
                 [
-                    'usersList',
                     'logged',
                 ]
             )

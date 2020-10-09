@@ -56,12 +56,15 @@
             }
         },
         methods: {
+            // select an user
             showUserDetails(user) {
                 this.$store.dispatch('generalStore/setSelectedUserAction', user);
             },
+            // show advanced filters modal
             getAdvancedFiltersModal() {
                 this.showAdvancedFiltersModal = true;
             },
+            // ok advanced filter modal button for apply filters
             applyFilters(value) {
                 this.$store.dispatch('generalStore/selectedFilterAction', value);
                 this.$toaster.success('Filters applied successfully');
@@ -69,6 +72,7 @@
             }
         },
         computed: {
+            // result on search
             resultSearch() {
                 if(this.searchText) {
                     return this.usersList.filter((user) => {
