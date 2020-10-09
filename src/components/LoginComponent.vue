@@ -1,7 +1,7 @@
 <template>
     <div class="login">
         <div class="d-flex align-items-center justify-content-center">
-            <form>
+            <div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">User</label>
                     <input class="form-control" id="exampleInputEmail1" v-model="user">
@@ -12,7 +12,7 @@
                     <input type="password" class="form-control" id="exampleInputPassword1" v-model="password">
                 </div>
                 <button @click="submitUser" class="btn btn-primary">Login</button>
-            </form>
+            </div>
         </div>
     </div>
 </template>

@@ -1,13 +1,24 @@
 <template>
-    <div>
-        <div>
-            <h2>{{selectedUser.firstName}}</h2>
-            <h2>{{selectedUser.lastName}}</h2>
-            <p>{{selectedUser.group}}</p>
+    <div class="user-details">
+        <div v-if="Object.keys(selectedUser).length !== 0">
+            <h2>{{selectedUser.firstName}} {{selectedUser.lastName}}</h2>
+            <p class="user-details-info">{{selectedUser.group}}</p>
         </div>
-        <div>
-            <button @click="getContact" class="btn btn-primary">Edit contact</button>
-            <button @click="deleteContact" class="btn btn-primary">Delete contact</button>
+        <div class="user-details__buttons-container w-100">
+            <div class="d-flex align-items-center justify-content-between">
+                <button class="btn btn-primary cursor-pointer"
+                        @click="getContact"
+                        :class="{
+                            disabled: Object.keys(selectedUser).length === 0
+                        }"
+                >Edit contact</button>
+                <button class="btn btn-primary cursor-pointer"
+                        @click="deleteContact"
+                        :class="{
+                            disabled: Object.keys(selectedUser).length === 0
+                        }"
+                >Delete contact</button>
+            </div>
         </div>
         <custom-modal-component
                 v-if="showEditContactModal"
@@ -52,16 +63,22 @@
         },
         methods: {
             getContact() {
-                this.showEditContactModal = true;
+                if(Object.keys(this.selectedUser).length !== 0) {
+                    this.showEditContactModal = true;
+                }
             },
             editUser(value) {
-                this.$store.dispatch('generalStore/setSelectedUserAction', value);
-                this.$toaster.success('User edited successfully');
-                this.showEditContactModal = false;
+                if(Object.keys(this.selectedUser).length !== 0) {
+                    this.$store.dispatch('generalStore/setSelectedUserAction', value);
+                    this.$toaster.success('User edited successfully');
+                    this.showEditContactModal = false;
+                }
             },
             deleteContact() {
-                this.$store.dispatch('generalStore/deleteContactAction');
-                this.$toaster.success('User deleted successfully');
+                if(Object.keys(this.selectedUser).length !== 0) {
+                    this.$store.dispatch('generalStore/deleteContactAction');
+                    this.$toaster.success('User deleted successfully');
+                }
             }
         },
         mounted() {
@@ -73,5 +90,21 @@
 </script>
 
 <style scoped>
+
+    .user-details__buttons-container {
+        position: absolute;
+        right: 0%;
+        bottom: 30px;
+        padding: 0 100px;
+    }
+
+    .user-details h2 {
+        font-size: 3rem;
+        text-transform: capitalize;
+    }
+
+    .user-details-info {
+        font-weight: 500;
+    }
 
 </style>

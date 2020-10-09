@@ -10,7 +10,7 @@
                 <div class="custom-modal__header">
                     <h5 class="mb-0" v-html="title"></h5>
                 </div>
-                <div class="custom-modal__content">
+                <div class="custom-modal__content pt-3">
                     <form v-if="from !='filters'">
                         <label for="fname">First name:</label>
                         <input type="text" id="fname" name="fname" v-model="newUser.firstName">
@@ -39,11 +39,11 @@
                         ></Multiselect>
                     </div>
                     <div class="custom-modal-buttons">
-                        <button class="btn btn--cancel"
+                        <button class="btn btn--cancel cursor-pointer"
                                 :style="cancelButtonColor"
                                 @click="cancelAction"
                         >{{cancelButtonText}}</button>
-                        <button class="btn btn--confirm"
+                        <button class="btn btn--confirm cursor-pointer"
                                 :style="confirmButtonColor"
                                 @click="getAction">{{confirmButtonText}}
                         </button>
@@ -79,7 +79,7 @@
             },
             customModalClass: {
                 type: String,
-                default: "modal-superbet"
+                default: "modal-customized"
             },
             width: {
                 default: '50%'

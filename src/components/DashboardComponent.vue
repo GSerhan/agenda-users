@@ -1,12 +1,13 @@
 <template>
     <div class="dashboard d-flex align-items-center justify-content-start">
-        <div>
+        <div class="dashboard__left-side col-4 pt-4 pb-4 h-100">
             <users-list-component></users-list-component>
-            <button @click="getContactModal" class="btn btn-primary">Add new contact</button>
+            <button @click="getContactModal" class="btn btn-primary btn--add-user cursor-pointer">Add new contact</button>
         </div>
-        <user-details-component
-            v-if="Object.keys(selectedUser).length !== 0"
-        ></user-details-component>
+        <div class="dashboard__right-side col-8 pt-4 pb-4 h-100">
+            <user-details-component
+            ></user-details-component>
+        </div>
         <custom-modal-component
             v-if="showAddContactModal"
             :from = "'add'"
@@ -65,7 +66,32 @@
     }
 </script>
 
+<style>
+    .cursor-pointer {
+        cursor: pointer;
+    }
+    .btn.disabled, .btn:disabled{
+        pointer-events: none;
+    }
+</style>
+
 <style scoped>
+
+    .dashboard {
+        border: 1px solid #64656F;
+        height: calc(100vh - 60px);
+    }
+
+    .dashboard__left-side {
+        border-right: 1px solid #64656F;
+        overflow: scroll;
+    }
+
+    .btn--add-user {
+        position: absolute;
+        bottom: 30px;
+        transform: translateX(-50%);
+    }
 
 
 </style>

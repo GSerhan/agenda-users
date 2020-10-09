@@ -1,20 +1,19 @@
 <template>
-    <div>
+    <div class="user-list">
         <div v-if="Object.keys(selectedFilter).length !== 0">
             <p>Filter name: {{selectedFilter.name}}</p>
             <p>Filtered by: {{selectedFilter.group}}</p>
-            <p>Serhan2</p>
         </div>
-        <div class="search-container">
-            <input class="search-form" type="text" v-model="searchText" placeholder="Search" />
+        <div class="search-container mb-2">
+            <input class="search-form w-100" type="text" v-model="searchText" placeholder="Search" />
         </div>
-        <div>
-            <button @click="getAdvancedFiltersModal" class="btn btn-primary">Advanced filters</button>
+        <div class="text-right">
+            <button @click="getAdvancedFiltersModal" class="btn btn-primary cursor-pointer">Advanced filters</button>
         </div>
         <div class="d-flex align-items-start flex-column w-100" v-for="(firstLetter, index) in firstLetterUsers" :key="index">
-            <div>{{firstLetter}}</div>
+            <div class="user-list--first-letter">{{firstLetter}}</div>
             <ul class="list p-0">
-                <li class=""
+                <li class="cursor-pointer"
                     v-for="(user, index) in resultSearch"
                     :key="index"
                     @click="showUserDetails(user)"
@@ -108,6 +107,11 @@
     .dashboard .list {
         list-style: none;
         text-align: left;
+    }
+    .user-list--first-letter {
+        text-transform: uppercase;
+        color: #dc3545;
+        font-weight: 700;
     }
 
 </style>
