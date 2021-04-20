@@ -86,7 +86,6 @@
         },
         mounted() {
             //if you want first user selected after you logged in
-
             // this.selectedUser = this.usersList[0];
         }
     }
